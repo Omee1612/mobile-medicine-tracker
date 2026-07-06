@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_card.dart';
+import 'addMed.dart';
 
 void main() {
   runApp(
@@ -35,17 +36,21 @@ class TimelyMedicine extends StatelessWidget {
 class TimelyBody extends StatelessWidget {
   const TimelyBody({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          HomeCard(label: "Add Medicine", icon: Icons.add_circle_outline),
+        children: [
+          GestureDetector( onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddMedicinePage()));          },
+            child:  HomeCard(label: "Add Medicine", icon: Icons.add_circle_outline), ),
           SizedBox(height: 20),
           HomeCard(label: "See Schedule", icon: Icons.calendar_month_outlined),
           SizedBox(height: 20),
           HomeCard(label: "Options", icon: Icons.settings_outlined),
+
         ],
       ),
     );
