@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'addMedForm.dart';
 
 class AddMedicinePage extends StatelessWidget {
   const AddMedicinePage({super.key});
@@ -21,25 +22,21 @@ class AddMedicinePage extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 'No medicines added yet',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[600],
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               ),
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // TODO: navigate to add-medicine form
+                    Navigator.of(
+                      context,
+                    ).push(MaterialPageRoute(builder: (context) => medForm()));
                   },
                   icon: const Icon(Icons.add),
                   label: const Text(
                     'Add Medicine',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green[400],
