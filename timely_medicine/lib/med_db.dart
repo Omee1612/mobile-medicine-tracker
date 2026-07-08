@@ -19,7 +19,7 @@ class MedicineDB {
     return await openDatabase(
       path,
       version: 1,
-      onCreate: (db, version) async => {
+      onCreate: (db, version) async {
         await db.execute('''
         CREATE TABLE medicines(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,7 +28,7 @@ class MedicineDB {
         hour INTEGER NOT NULL,
         minute INTEGER NOT NULL
         )
-'''),
+''');
       },
     );
   }

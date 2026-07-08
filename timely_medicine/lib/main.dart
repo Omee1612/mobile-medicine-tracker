@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timely_medicine/display_med.dart';
 import 'home_card.dart';
 import 'addMed.dart';
 
@@ -36,21 +37,37 @@ class TimelyMedicine extends StatelessWidget {
 class TimelyBody extends StatelessWidget {
   const TimelyBody({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector( onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddMedicinePage()));          },
-            child:  HomeCard(label: "Add Medicine", icon: Icons.add_circle_outline), ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => AddMedicinePage()),
+              );
+            },
+            child: HomeCard(
+              label: "Add Medicine",
+              icon: Icons.add_circle_outline,
+            ),
+          ),
           SizedBox(height: 20),
-          HomeCard(label: "See Schedule", icon: Icons.calendar_month_outlined),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => DisplayMed()));
+            },
+            child: HomeCard(
+              label: "See Added Medicines",
+              icon: Icons.add_circle_outline,
+            ),
+          ),
           SizedBox(height: 20),
           HomeCard(label: "Options", icon: Icons.settings_outlined),
-
         ],
       ),
     );
